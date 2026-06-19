@@ -1,6 +1,6 @@
 # kopad
 
-Gamepad control for KOReader. A crosshair word-snapping cursor + structured
+Gamepad control for KOReader. Structured
 sentence/word navigation, designed for reading with a game controller.
 
 Requires a gamepad connected via SDL3 (the desktop emulator, or any KOReader
@@ -78,7 +78,7 @@ kopad.koplugin/
 ├── _meta.lua        plugin manifest
 ├── main.lua         umbrella plugin: loads sub-controllers
 ├── padnav.lua       gamepad key mapping + reading/selection controls
-├── selector.lua     two-layer overlay (crosshair + structured modes)
+├── selector.lua     two-layer overlay (structured modes)
 └── wordsource.lua   CRengine word/sentence collection (shared with keyreader)
 ```
 

@@ -1,7 +1,6 @@
 # kopad
 
-Gamepad control for KOReader. Structured
-sentence/word navigation, designed for reading with a game controller.
+Gamepad control for KOReader: structured sentence/word navigation for reading with a game controller.
 
 Requires a gamepad connected via SDL3 (the desktop emulator, or any KOReader
 build that uses the SDL frontend).
@@ -11,7 +10,7 @@ build that uses the SDL frontend).
 Copy the `kopad.koplugin/` directory into KOReader's `plugins/` folder:
 
 ```bash
-git clone <repo-url> kopad
+git clone https://github.com/sypianski/kopad
 cp -r kopad/kopad.koplugin ~/.config/koreader/plugins/
 ```
 

@@ -1,0 +1,51 @@
+--- a/ffi/SDL3.lua
++++ b/ffi/SDL3.lua
+@@ -303,13 +303,27 @@
+             genEmuEvent(C.EV_KEY, 1073741905, 1)
+         end
+-    -- right stick 3/4
++    -- right stick horizontal 3
++    elseif axis == 3 then
++        if value < -neutral_max_val then
++            genEmuEvent(C.EV_KEY, 1073741886, 1) -- F5: R-stick left
++        else
++            genEmuEvent(C.EV_KEY, 1073741889, 1) -- F8: R-stick right
++        end
++    -- right stick vertical 4
+     elseif axis == 4 then
+         if value < -neutral_max_val then
+-            -- send page up
+-            genEmuEvent(C.EV_KEY, 1073741899, 1)
++            genEmuEvent(C.EV_KEY, 1073741884, 1) -- F3: R-stick up
+         else
+-            -- send page down
+-            genEmuEvent(C.EV_KEY, 1073741902, 1)
++            genEmuEvent(C.EV_KEY, 1073741885, 1) -- F4: R-stick down
+         end
+-    -- left trigger 2
+-    -- right trigger 5
++    -- left trigger 2
++    elseif axis == 2 then
++        if value > neutral_max_val then
++            genEmuEvent(C.EV_KEY, 1073741887, 1) -- LPgBack (F6): LT
++        end
++    -- right trigger 5
++    elseif axis == 5 then
++        if value > neutral_max_val then
++            genEmuEvent(C.EV_KEY, 1073741888, 1) -- LPgFwd (F7): RT
++        end
+     end
+@@ -455,6 +469,14 @@
+         elseif button == SDL.SDL_GAMEPAD_BUTTON_NORTH then
+             -- send ContextMenu
+             genEmuEvent(C.EV_KEY, 1073741925, 1)
++        -- west (X) button
++        elseif button == SDL.SDL_GAMEPAD_BUTTON_WEST then
++            genEmuEvent(C.EV_KEY, 1073741891, 1) -- F10: X button
++        -- shoulder buttons
++        elseif button == SDL.SDL_GAMEPAD_BUTTON_LEFT_SHOULDER then
++            genEmuEvent(C.EV_KEY, 1073741890, 1) -- F9: LB
++        elseif button == SDL.SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER then
++            genEmuEvent(C.EV_KEY, 1073741892, 1) -- F11: RB
+         -- left bumper
+         elseif button == SDL.SDL_GAMEPAD_BUTTON_BACK then
